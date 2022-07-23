@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{UserController, ProductController};
+use App\Http\Controllers\{UserController, ProductController, CategoryController};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::prefix('private')->group(function(){
         Route::get("list_products/{page?}",[ProductController::class,"list_products"]);
         Route::get("detail_products/{detail_product?}",[ProductController::class,"detail_products"]);
         Route::get("sorting_product/{column?}/{sort?}",[ProductController::class,"sorting_product"]);
-        Route::get("list_category",[ProductController::class,"list_category"]);
+        Route::get("list_category",[CategoryController::class,"list_category"]);
     });
 });
 
@@ -34,6 +34,6 @@ Route::prefix('public')->group(function(){
         Route::get("list_products/{page?}",[ProductController::class,"list_products"]);
         Route::get("detail_products/{detail_product?}",[ProductController::class,"detail_products"]);
         Route::get("sorting_product/{column?}/{sort?}",[ProductController::class,"sorting_product"]);
-        Route::get("list_category",[ProductController::class,"list_category"]);
+        Route::get("list_category",[CategoryController::class,"list_category"]);
     });
 });

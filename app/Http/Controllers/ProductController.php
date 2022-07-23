@@ -2,82 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{product_details, products, categories};
+use App\Models\products;
 use Illuminate\Http\Request;
+use App\Repositories\ProductRepository;
 
 class ProductController extends Controller
 {
-    public function list_products($page=1)
+    public function __construct()
     {
-        if($page < 1)
-        {
-            $page =1;
-        }
-        $limit = 5;
-        $offset = ($page * $limit) - $limit;
-        
-        $data = $this->product_builder()
-            ->offset($offset)
-            ->limit($limit)
-            ->get()
-            ->toArray()
-        ;    
-  
-        return custom_response(true,"success",null,$data);
+        $this->repo = new ProductRepository( new \App\Models\products() );
     }
 
-    public function detail_products($product_id)
+    protected function list_products($page = 1)
     {
-        if(! $product_id )
-        {
-            return custom_response(false,null, "product id required");
-        }
+        $page = $page < 1 || $page == null ? 1 : $page;
+        $results = $this->repo->list($page);
+        return custom_response(true,"success",null,$results);
+    }
 
-        $data = $this->product_builder()
-            ->whereProductId($product_id)
-            ->first()
-        ;
-        
-        if( ! $data )
+    protected function detail_products($product_id = null)
+    {
+        $result = $this->repo->details($product_id);
+        if($result instanceof \Exception)
         {
-            return custom_response(false,null, "product not found with this id ({$product_id})");
+            return custom_response(false,null,$result->getMessage());
         }
-        
-        return custom_response(true,"success", null, $data->toArray());
+        return custom_response(true,"success", null, $result);
     }
 
     public function sorting_product($column = 'id', $sort ='asc')
     {
-        $data = $this->product_builder()
-            ->orderBy($column,$sort)
-            ->get()
-            ->toArray()
-        ;
-        return custom_response(true,"success", null, $data);    
-
-    }
-
-    public function list_category()
-    {
-        $data = categories::query()
-            ->join("product_details", "product_details.category_id", "categories.id")
-            ->join("products", "product_details.product_id", "products.id")
-            ->selectRaw("categories.category_name, count(categories.category_name) as total_product")
-            ->groupBy("categories.category_name")
-            ->get()
-            ->toArray()
-        ;
-        return custom_response(true,"success", null, $data); 
-    }
-
-    public function product_builder()
-    {
-        $query = products::query()
-            ->join("product_details", "products.id", "product_details.product_id")
-            ->join("categories","product_details.category_id","categories.id")
-            ->select("products.id","product_name","category_name","stock","price")
-        ;
-        return $query;
-
+        $results = $this->repo->sort([
+            "column" => $column,
+            "sort" => $sort
+        ]);
+        return custom_response(true,"success", null, $results);
     }
 }

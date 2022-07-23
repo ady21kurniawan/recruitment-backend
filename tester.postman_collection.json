@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"admin\",\n    \"email\":\"admin@web.id\",\n    \"password\":\"admin\"\n}",
+							"raw": "{\n    \"name\":\"ady21kurniawan\",\n    \"email\":\"ady21kurniawan@web.id\",\n    \"password\":\"ady21kurniawan\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\":\"admin@web.id\",\n    \"password\":\"admin\"\n}",
+							"raw": "{\n    \"email\":\"dexter@web.id\",\n    \"password\":\"dexter\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,7 +96,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/private/list_products/1",
+							"raw": "localhost:8000/api/private/list_products/3",
 							"host": [
 								"localhost"
 							],
@@ -105,7 +105,7 @@
 								"api",
 								"private",
 								"list_products",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -128,7 +128,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/private/detail_products/10",
+							"raw": "localhost:8000/api/private/detail_products/101",
 							"host": [
 								"localhost"
 							],
@@ -137,7 +137,7 @@
 								"api",
 								"private",
 								"detail_products",
-								"10"
+								"101"
 							]
 						}
 					},
@@ -190,22 +190,17 @@
 								"key": "Authorization",
 								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGEyODgyNjFkODA1MWI3MWM5ZmM1YzY0ZDc5YjhlNWYwZTJmODE1MjI3NzdmNDI1ZTMyOTFmODRkODhlOGQzMzE5OGM4YTVlNTk0MDFiMDciLCJpYXQiOjE2NTg1MjE3MzguNTkxNTE3LCJuYmYiOjE2NTg1MjE3MzguNTkxNTIyLCJleHAiOjE2OTAwNTc3MzguNTgyMDAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ncQmKhnvXfy2dG97xqSTSYhvYuADm29qippsZYYpiF5oRR1eQTvR4PNQ-c9ACwzYfcYrh8oKLSbm8kS2yp-8c4-aG-yuwhkYwJx8T5TnYi_U09ysxSzNwZJ2UANp14PtzINAZH6tkXukY_Cs_l7vrhdIliqV0yHohj4sUC4IQotRuYxSqIYhZcWxVoBsZ3wkdV9_IEQNjlsvNOGnTXbU89XYTMveRse_bWZvoQ9KIbxSsXP65UR_-EOn9h9KoAPl9qU0KfiMeWsS296sIwiYLlx3MtoBn-S4yx3ek79HIdxgsTu4YJTQIw5jsDTbJ445ssVjvF8jmmzvYDVDprs-SEWSkBH1JQ_HsQwceF3GfGbDha2TLc43XC7fcMTpQHLFZERj2DV05xIGEMzOmp3Cl0cxe2V4pyFQUnu6xew3YvmKy8m424HZpwlNJimPB7RFHZmi2fD5b-A2HeP67N8Ivs7e_OQvGxzGu_VjJA5edyrAUGZy6CZtQBoKfW7v2P5YDPgQfhHGMdaL6tVGF46gLCbmz93eWuQXBu4tKhfDbg-NwN8aqfv19FmyQUqCNRM-XJffmENlQvWcajpunAGgVuG6TJiyMDrJ1cNmA4zn8ZGaNtDitmLtMpCcoSbwjFjGmqf6hvrFW2bJ6UlqvPzLJux5ht1SywSoR739CVeQsoo",
 								"type": "text"
-							},
-							{
-								"key": "x-api-key",
-								"value": "guest",
-								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/public/list_category",
+							"raw": "localhost:8000/api/private/list_category",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"api",
-								"public",
+								"private",
 								"list_category"
 							]
 						}
@@ -283,7 +278,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/public/detail_products/10",
+							"raw": "localhost:8000/api/public/detail_products/101",
 							"host": [
 								"localhost"
 							],
@@ -292,7 +287,7 @@
 								"api",
 								"public",
 								"detail_products",
-								"10"
+								"101"
 							]
 						}
 					},
